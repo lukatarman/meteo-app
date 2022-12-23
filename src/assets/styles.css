@@ -14,9 +14,16 @@
   border: 1px red solid;
 }
 
-.favorites-icon {
+.top-left-favorites {
   position: absolute;
   top: 0px;
   left: 0px;
   border: 1px red solid;
+}
+
+.top-right-favorites {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border: 1px solid blue;
 }
