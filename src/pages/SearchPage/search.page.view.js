@@ -5,7 +5,10 @@ import FavoritesButton from "../../Components/FavoritesButton/favorites.button.v
 const SearchPage = () => {
   return (
     <div>
-      <FavoritesButton />
+      <div className="top-left-favorites">
+        <FavoritesButton size={6} />
+      </div>
+
       <SettingsButton />
       <SearchInput />
     </div>
