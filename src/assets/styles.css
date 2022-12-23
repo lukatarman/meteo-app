@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* * {
+* {
   border: 1px solid green;
   margin: 2px;
-} */
+}
 
 .settings-icon {
   position: absolute;
@@ -15,6 +15,7 @@
 }
 
 .top-left-favorites {
+  margin: 10px;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -26,4 +27,11 @@
   top: 0px;
   right: 0px;
   border: 1px solid blue;
+}
+
+@media screen and (max-width: 400px) {
+  .favorites-bar {
+    position: absolute;
+    width: 92%;
+  }
 }
