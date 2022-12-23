@@ -1,18 +1,29 @@
+import { Link } from "react-router-dom";
 import FavoritesButton from "../FavoritesButton/favorites.button.view.js";
+import SearchInputBehavior from "./search.input.behavior.js";
 
 const SearchInput = () => {
-  const autocompleteResults = () => {
+  const [searchInput, onInputChange, searchResults, onItemClick] = SearchInputBehavior();
+
+  const renderResults = searchResults.map((result, index) => {
     return (
-      <ul className="bg-white border border-gray-100 w-full mt-2">
-        <li className="pl-2 pr-2 py-1 border-b-2 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900">
-          <div>Osijek</div>
-          <div className="top-right-favorites">
-            <FavoritesButton size={4} />
-          </div>
-        </li>
+      <ul key={index} className="bg-white border border-gray-100 w-full mt-1">
+        <Link to={"/city/" + result.city}>
+          <li
+            className="pl-2 pr-2 py-1 border-b-2 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900"
+            onClick={() => {
+              onItemClick(index);
+            }}
+          >
+            <div>{result.city}</div>
+            <div className="top-right-favorites">
+              <FavoritesButton size={4} />
+            </div>
+          </li>
+        </Link>
       </ul>
     );
-  };
+  });
 
   return (
     <div className="flex flex-col items-center h-screen">
@@ -25,6 +36,8 @@ const SearchInput = () => {
               type="text"
               className="w-full p-2 pr-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent"
               placeholder="Search"
+              value={searchInput}
+              onChange={onInputChange}
             />
             <svg
               className="w-4 h-4 absolute right-2.5 top-3.5"
@@ -41,7 +54,7 @@ const SearchInput = () => {
               />
             </svg>
           </div>
-          {autocompleteResults()}
+          {searchResults && renderResults}
         </div>
       </div>
     </div>
