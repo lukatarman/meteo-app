@@ -5,6 +5,11 @@ import { getLocationDetails } from "../../adapters/http.client.adapter.js";
 import { selectedCityState } from "../../contexts/CityDetailsContext/index.js";
 import ViewDropdown from "../../Components/ViewDropdown/view.dropdown.view.js";
 
+// todo
+// Add/style JSX
+// Modify ViewDropdown compoent, add dropdown
+// Add Variables Component, add JSX
+
 const CityDetails = () => {
   let { name } = useParams();
 
