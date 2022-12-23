@@ -1,5 +1,5 @@
 import { Switch, Route } from "react-router-dom";
-import Search from "../Search/search.view.js";
+import SearchPage from "../SearchPage/search.page.view.js";
 import SettingsButton from "../../Components/SettingsButton/settings.button.view.js";
 import FavoritesButton from "../../Components/FavoritesButton/favorites.button.view.js";
 
@@ -9,7 +9,7 @@ const App = () => {
       <Route exact path="/">
         <FavoritesButton />
         <SettingsButton />
-        <Search />
+        <SearchPage />
       </Route>
     </Switch>
   );
