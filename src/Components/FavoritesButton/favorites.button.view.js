@@ -1,4 +1,4 @@
-const FavoritesButton = () => {
+const FavoritesButton = ({ size }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +6,7 @@ const FavoritesButton = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-8 h-8 favorites-icon m-2"
+      className={`w-${size} h-${size} favorites-icon m-2`}
     >
       <path
         strokeLinecap="round"
