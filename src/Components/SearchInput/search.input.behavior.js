@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { searchResultsState, searchInputState } from "../../contexts/SearchPageContenxt";
-import { selectedCityState } from "../../contexts/AppContext/index.js";
+import { selectedCityState } from "../../contexts/CityDetailsContext";
 import { getSearchResults } from "../../adapters/http.client.adapter.js";
 
 const SearchInputBehavior = () => {
