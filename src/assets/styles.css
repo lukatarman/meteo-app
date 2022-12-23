@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* * {
+  border: 1px solid green;
+  margin: 2px;
+} */
+
+.settings-icon {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border: 1px red solid;
+}
+
+.favorites-icon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border: 1px red solid;
+}
