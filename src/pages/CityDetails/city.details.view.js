@@ -7,7 +7,30 @@ import Dropdown from "../../Components/Dropdown/dropdown.view.js";
 import HourlyVariables from "../../Components/HourlyVariables/hourly.variables.js";
 
 // todo
-// Add Variables Component, add JSX
+// Make hourly variables reusable as daily variables also
+// Variables options should be expansive object in the form:
+
+// const myObj = {
+//   type: "hourly",
+//   variables: {
+//     colOne: [
+//       { "Temperature (2m)": "temperature_2m" },
+//       { "Relative Humidity (2m)": "relativehumidity_2m" },
+//     ],
+//     colTwo: [
+//       { "Dewpoint (2m)": "dewpoint_2m" },
+//       { "Clouncover Total": "cloudcover" },
+//     ],
+//     colThree: [
+//       { "Temperature (2m)": "temperature_2m" },
+//       { "Relative Humidity (2m)": "relativehumidity_2m" },
+//     ],
+//     colFour: [
+//       { "Temperature (2m)": "temperature_2m" },
+//       { "Relative Humidity (2m)": "relativehumidity_2m" },
+//     ],
+//   },
+// };
 
 const CityDetails = () => {
   let { name } = useParams();
