@@ -4,6 +4,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { getLocationDetails } from "../../adapters/http.client.adapter.js";
 import { selectedCityState } from "../../contexts/CityDetailsContext/index.js";
 import Dropdown from "../../Components/Dropdown/dropdown.view.js";
+import HourlyVariables from "../../Components/HourlyVariables/hourly.variables.js";
 
 // todo
 // Add Variables Component, add JSX
@@ -27,6 +28,7 @@ const CityDetails = () => {
       <div className="flex flex-col items-center h-screen">
         <h1 className="text-4xl my-5">Metorologic data for {name}</h1>
         <Dropdown options={dropdownOptions} />
+        <HourlyVariables />
       </div>
     </div>
   );
