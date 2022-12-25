@@ -6,8 +6,6 @@ import { selectedCityState } from "../../contexts/CityDetailsContext/index.js";
 import Dropdown from "../../Components/Dropdown/dropdown.view.js";
 
 // todo
-// Add/style JSX
-// Modify ViewDropdown compoent, add dropdown
 // Add Variables Component, add JSX
 
 const CityDetails = () => {
