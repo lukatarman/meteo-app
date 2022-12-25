@@ -26,8 +26,10 @@ const CityDetails = () => {
 
   return (
     <div>
-      <div>Metorologic data for {name}</div>
-      <Dropdown options={dropdownOptions} />
+      <div className="flex flex-col items-center h-screen">
+        <h1 className="text-4xl my-5">Metorologic data for {name}</h1>
+        <Dropdown options={dropdownOptions} />
+      </div>
     </div>
   );
 };
