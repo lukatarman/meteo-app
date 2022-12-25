@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { getLocationDetails } from "../../adapters/http.client.adapter.js";
 import { selectedCityState } from "../../contexts/CityDetailsContext/index.js";
-import ViewDropdown from "../../Components/ViewDropdown/view.dropdown.view.js";
+import Dropdown from "../../Components/Dropdown/dropdown.view.js";
 
 // todo
 // Add/style JSX
@@ -19,10 +19,15 @@ const CityDetails = () => {
     getLocationDetails(name);
   });
 
+  const dropdownOptions = {
+    defaultValue: "Please Select View Type",
+    menuOptions: ["Hourly View", "Daily View"],
+  };
+
   return (
     <div>
       <div>Metorologic data for {name}</div>
-      <ViewDropdown />
+      <Dropdown options={dropdownOptions} />
     </div>
   );
 };
