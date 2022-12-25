@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* * {
+* {
   border: 1px solid green;
   margin: 2px;
-} */
+}
 
 .settings-icon {
   position: absolute;
