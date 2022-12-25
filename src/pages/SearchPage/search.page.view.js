@@ -6,17 +6,15 @@ import FavoritesBar from "../../Components/FavoritesBar/favorites.bar.view.js";
 const SearchPage = () => {
   return (
     <div className="flex">
-      <div className="w-72 xs:w-1/4 favorites-bar">
-        <FavoritesBar></FavoritesBar>
-      </div>
+      <FavoritesBar />
+
       <div className="top-left-favorites">
         <FavoritesButton size={6} />
       </div>
 
       <SettingsButton />
-      <div className="w-full">
-        <SearchInput />
-      </div>
+
+      <SearchInput />
     </div>
   );
 };
