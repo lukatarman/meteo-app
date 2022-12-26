@@ -30,6 +30,10 @@
   border: 1px solid blue;
 }
 
+.custom-checkbox:focus {
+  box-shadow: none;
+}
+
 @media screen and (max-width: 400px) {
   .favorites-bar {
     position: absolute;
