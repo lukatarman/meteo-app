@@ -17,5 +17,5 @@ export const variableTypeState = atom({
 
 export const weatherVariablesState = atom({
   key: "WeatherVariables",
-  default: [],
+  default: { type: "", values: [] },
 });
