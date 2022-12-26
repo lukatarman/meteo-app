@@ -22,24 +22,24 @@ const CityDetailsBehavior = () => {
     type: "Hourly",
     variables: {
       colOne: [
-        { "Temperature (2m)": "temperature_2m" },
-        { "Relative Humidity (2m)": "relativehumidity_2m" },
-        { "Apparent Temperature": "apparent_temperature" },
+        { value: "Temperature (2m)", apiValue: "temperature_2m" },
+        { value: "Relative Humidity (2m)", apiValue: "relativehumidity_2m" },
+        { value: "Apparent Temperature", apiValue: "apparent_temperature" },
       ],
       colTwo: [
-        { "Dewpoint (2m)": "dewpoint_2m" },
-        { Rain: "rain" },
-        { Snowfall: "snowfall" },
+        { value: "Dewpoint (2m)", apiValue: "dewpoint_2m" },
+        { value: "Rain", apiValue: "rain" },
+        { value: "Snowfall", apiValue: "snowfall" },
       ],
       colThree: [
-        { "Sealevel Pressure": "pressure_msl" },
-        { "Surface Pressure": "surface_pressure" },
-        { Visibility: "visibility" },
+        { value: "Sealevel Pressure", apiValue: "pressure_msl" },
+        { value: "Surface Pressure", apiValue: "surface_pressure" },
+        { value: "Visibility", apiValue: "visibility" },
       ],
       colFour: [
-        { "Wind Speed (10 m)": "windspeed_10m" },
-        { "Wind Direction (10 m)": "winddirection_10m" },
-        { "Wind Gusts (10 m)": "windgusts_10m" },
+        { value: "Wind Speed (10 m)", apiValue: "windspeed_10m" },
+        { value: "Wind Direction (10 m)", apiValue: "winddirection_10m" },
+        { value: "Wind Gusts (10 m)", apiValue: "windgusts_10m" },
       ],
     },
   };
@@ -48,24 +48,27 @@ const CityDetailsBehavior = () => {
     type: "Daily",
     variables: {
       colOne: [
-        { Weathercode: "weathercode" },
-        { "Maximum Temperature (2m)": "temperature_2m_max" },
-        { "Minimum Temperature (2m)": "temperature_2m_min" },
+        { value: "Weathercode", apiValue: "weathercode" },
+        { value: "Maximum Temperature (2m)", apiValue: "temperature_2m_max" },
+        { value: "Minimum Temperature (2m)", apiValue: "temperature_2m_min" },
       ],
       colTwo: [
-        { Sunrise: "sunrise" },
-        { Sunset: "sunset" },
-        { "Reference Evapotranspiration": "et0_fao_evapotranspiration" },
+        { value: "Sunrise", apiValue: "sunrise" },
+        { value: "Sunset", apiValue: "sunset" },
+        { value: "Reference Evapotranspiration", apiValue: "et0_fao_evapotranspiration" },
       ],
       colThree: [
-        { "Rain Sum": "rain_sum" },
-        { "Showers Sum": "showers_sum" },
-        { "Snowfall Sum": "snowfall_sum" },
+        { value: "Rain Sum", apiValue: "rain_sum" },
+        { value: "Showers Sum", apiValue: "showers_sum" },
+        { value: "Snowfall Sum", apiValue: "snowfall_sum" },
       ],
       colFour: [
-        { "Maximum Wind Speed (10 m)": "windspeed_10m_max" },
-        { "Maximum Wind Gusts (10 m)": "windgusts_10m_max" },
-        { "Dominant Wind Direction (10 m)": "winddirection_10m_dominant" },
+        { value: "Maximum Wind Speed (10 m)", apiValue: "windspeed_10m_max" },
+        { value: "Maximum Wind Gusts (10 m)", apiValue: "windgusts_10m_max" },
+        {
+          value: "Dominant Wind Direction (10 m)",
+          apiValue: "winddirection_10m_dominant",
+        },
       ],
     },
   };
