@@ -2,7 +2,6 @@ import Dropdown from "../../Components/Dropdown/dropdown.view.js";
 import WeatherVariables from "../../Components/WeatherVariables/weather.variables.js";
 import { variableTypeState } from "../../contexts/CityDetailsContext/";
 import { useRecoilValue } from "recoil";
-
 import CityDetailsBehavior from "./city.details.behavior.js";
 
 // todo
@@ -14,13 +13,13 @@ import CityDetailsBehavior from "./city.details.behavior.js";
 const CityDetails = () => {
   const variableType = useRecoilValue(variableTypeState);
 
-  const [dropdownOptions, hourlyVariables, dailyVariables, cityName] =
+  const [dropdownOptions, hourlyVariables, dailyVariables, selectedCity] =
     CityDetailsBehavior();
 
   return (
     <div>
       <div className="flex flex-col items-center h-screen">
-        <h1 className="text-4xl my-5">Metorologic data for {cityName}</h1>
+        <h1 className="text-4xl my-5">Metorologic data for {selectedCity.city}</h1>
         <Dropdown options={dropdownOptions} />
         {variableType === "Hourly View" ? (
           <WeatherVariables options={hourlyVariables} />

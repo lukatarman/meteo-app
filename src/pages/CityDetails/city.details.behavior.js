@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { selectedCityState } from "../../contexts/AppContext/index.js";
 
 const CityDetailsBehavior = () => {
   let params = useParams();
 
-  const setSelectedCity = useSetRecoilState(selectedCityState);
+  const [selectedCity, setSelectedCity] = useRecoilState(selectedCityState);
 
   useEffect(() => {
     setSelectedCity(params);
@@ -72,7 +72,7 @@ const CityDetailsBehavior = () => {
     },
   };
 
-  return [dropdownOptions, hourlyVariables, dailyVariables];
+  return [dropdownOptions, hourlyVariables, dailyVariables, selectedCity];
 };
 
 export default CityDetailsBehavior;
