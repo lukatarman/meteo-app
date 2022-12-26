@@ -1,9 +1,12 @@
 import { useEffect } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { getCityGraph } from "../../adapters/http.client.adapter.js";
 import { weatherVariablesState } from "../../contexts/CityDetailsContext/index.js";
+import { selectedCityState } from "../../contexts/AppContext/index.js";
 
 const WeatherVariablesBehavior = (options) => {
   const [weatherVariables, setWeatherVariables] = useRecoilState(weatherVariablesState);
+  const selectedCity = useRecoilValue(selectedCityState);
 
   const handleCheckboxClick = (e) => {
     if (weatherVariables.values.includes(e.target.id)) removeClickedValue(e);
@@ -27,7 +30,11 @@ const WeatherVariablesBehavior = (options) => {
   };
 
   useEffect(() => {
-    console.log(weatherVariables.values);
+    const fetchGraphData = () => {
+      getCityGraph(selectedCity, weatherVariables);
+    };
+
+    fetchGraphData();
   }, [weatherVariables]);
 
   return handleCheckboxClick;
