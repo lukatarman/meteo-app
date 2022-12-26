@@ -5,8 +5,8 @@ import { variableTypeState } from "../../contexts/CityDetailsContext/index.js";
 import { useRecoilValue } from "recoil";
 
 // todo
-// Make hourly variables reusable as daily variables also
-// Variables options should be expansive object in the form:
+// add api calls based on checkboxes selected
+// display data as text
 
 const CityDetails = () => {
   const variableType = useRecoilValue(variableTypeState);
