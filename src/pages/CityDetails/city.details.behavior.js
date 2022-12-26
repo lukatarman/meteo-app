@@ -1,17 +1,16 @@
-import { useParams } from "react-router-dom";
-import { useRecoilValue } from "recoil";
 import { useEffect } from "react";
-import { getLocationDetails } from "../../adapters/http.client.adapter.js";
-import { selectedCityState } from "../../contexts/CityDetailsContext/index.js";
+import { useParams } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { selectedCityState } from "../../contexts/AppContext/index.js";
 
 const CityDetailsBehavior = () => {
-  let { cityName } = useParams();
+  let params = useParams();
 
-  const selectedCity = useRecoilValue(selectedCityState);
+  const setSelectedCity = useSetRecoilState(selectedCityState);
 
   useEffect(() => {
-    getLocationDetails(cityName);
-  });
+    setSelectedCity(params);
+  }, []);
 
   const dropdownOptions = {
     defaultValue: "Please Select View Type",
@@ -73,7 +72,7 @@ const CityDetailsBehavior = () => {
     },
   };
 
-  return [dropdownOptions, hourlyVariables, dailyVariables, cityName];
+  return [dropdownOptions, hourlyVariables, dailyVariables];
 };
 
 export default CityDetailsBehavior;
