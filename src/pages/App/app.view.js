@@ -8,7 +8,7 @@ const App = () => {
       <Route exact path="/">
         <SearchPage />
       </Route>
-      <Route exact path="/city/:cityName">
+      <Route exact path="/city=:city&latitude=:latitude&longitude=:longitude">
         <CityDetails />
       </Route>
     </Switch>

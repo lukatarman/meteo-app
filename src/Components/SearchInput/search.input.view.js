@@ -3,18 +3,14 @@ import FavoritesButton from "../FavoritesButton/favorites.button.view.js";
 import SearchInputBehavior from "./search.input.behavior.js";
 
 const SearchInput = () => {
-  const [searchInput, onInputChange, searchResults, onItemClick] = SearchInputBehavior();
+  const [searchInput, onInputChange, searchResults] = SearchInputBehavior();
 
   const renderResults = searchResults.map((result, index) => {
+    console.log(result);
     return (
       <ul key={index} className="bg-white border border-gray-100 w-full mt-1">
-        <Link to={"/city/" + result.city}>
-          <li
-            className="pl-2 pr-2 py-1 border-b-2 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900"
-            onClick={() => {
-              onItemClick(index);
-            }}
-          >
+        <Link to={`/city=${result.city}&latitude=${result.lat}&longitude=${result.lng}`}>
+          <li className="pl-2 pr-2 py-1 border-b-2 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900">
             <div>{result.city}</div>
             <div className="top-right-favorites">
               <FavoritesButton size={4} />
