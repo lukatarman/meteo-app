@@ -1,5 +1,6 @@
 import axios from "axios";
 import searchResults from "../assets/gradovi.json";
+import { getParams } from "./services/http.client.adapter.service.js";
 
 export const getSearchResults = (term) => {
   const response = searchResults;
@@ -9,16 +10,8 @@ export const getSearchResults = (term) => {
     .filter((result, index) => index <= 5);
 };
 
-export const getLocationDetails = async (name) => {
-  const searchResponse = searchResults.filter(
-    ({ city }) => city.toLowerCase() === name.toLowerCase()
-  );
-  const fixedLatitude = searchResponse[0].lat.slice(0, 5);
-  const fixedLongitude = searchResponse[0].lng.slice(0, 5);
-
-  const response = await axios.get(
-    `https://api.open-meteo.com/v1/forecast?latitude=${fixedLatitude}&longitude=${fixedLongitude}`
-  );
-
+export const getCityGraph = async (selectedCity, weatherVariables) => {
+  const params = getParams(selectedCity, weatherVariables);
+  const response = await axios.get(`https://api.open-meteo.com/v1/forecast?${params}`);
   console.log(response.data);
 };
