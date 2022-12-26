@@ -11,7 +11,7 @@ const Dropdown = ({ options }) => {
   const [handleDropdownClick, dropdownRef] = DropdownBehavior();
 
   return (
-    <div>
+    <div className="mb-5">
       <div>
         <button
           ref={dropdownRef}
