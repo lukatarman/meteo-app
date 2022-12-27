@@ -1,7 +1,5 @@
 import Dropdown from "../../Components/Dropdown/dropdown.view.js";
 import WeatherVariables from "../../Components/WeatherVariables/weather.variables.js";
-import { variableTypeState } from "../../contexts/CityDetailsContext/";
-import { useRecoilValue } from "recoil";
 import CityDetailsBehavior from "./city.details.behavior.js";
 
 // todo
@@ -11,9 +9,7 @@ import CityDetailsBehavior from "./city.details.behavior.js";
 // add settings component
 
 const CityDetails = () => {
-  const variableType = useRecoilValue(variableTypeState);
-
-  const [dropdownOptions, hourlyVariables, dailyVariables, selectedCity] =
+  const [dropdownOptions, hourlyVariables, dailyVariables, selectedCity, variableType] =
     CityDetailsBehavior();
 
   return (
