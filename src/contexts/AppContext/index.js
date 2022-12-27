@@ -1,5 +1,10 @@
 import { atom } from "recoil";
 
+export const favoriteCitiesState = atom({
+  key: "FavoriteCities",
+  default: [],
+});
+
 export const selectedCityState = atom({
   key: "CityDetails",
   default: {},
@@ -8,9 +13,9 @@ export const selectedCityState = atom({
 export const settingsState = atom({
   key: "Settings",
   default: {
-    temperatureUnit: "celsius",
-    windSpeedUnit: "km/h",
-    precipitationUnit: "mm",
+    temperature: "celsius",
+    windspeed: "km/h",
+    precipitation: "mm",
     timezone: "UTC",
     pastDays: "0",
   },
