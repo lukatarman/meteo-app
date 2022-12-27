@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Dropdown from "../../Components/Dropdown/dropdown.view.js";
 import WeatherVariables from "../../Components/WeatherVariables/weather.variables.js";
 import SettingsMenu from "../../Components/SettingsMenu/settings.menu.view.js";
@@ -10,13 +11,15 @@ import CityDetailsBehavior from "./city.details.behavior.js";
 // add settings component
 
 const CityDetails = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
   const [dropdownOptions, hourlyVariables, dailyVariables, selectedCity, variableType] =
     CityDetailsBehavior();
 
   return (
     <div>
       <div className="flex flex-col items-center h-screen">
-        <SettingsMenu />
+        {isVisible ? <SettingsMenu setIsVisible={setIsVisible} /> : null}
         <h1 className="text-4xl my-5">Metorologic data for {selectedCity.city}</h1>
         <Dropdown options={dropdownOptions} />
         {variableType === "Hourly View" ? (

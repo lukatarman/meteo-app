@@ -1,9 +1,10 @@
 import Dropdown from "../Dropdown/dropdown.view.js";
 import Button from "../Button/button.js";
+import CloseButton from "../CloseButton/close.button.js";
 import SettingsMenuRadio from "../SettingsMenuRadio/settings.menu.radio.js";
 import SettingsMenuBehavior from "./settings.menu.behavior.js";
 
-const SettingsMenu = () => {
+const SettingsMenu = ({ setIsVisible }) => {
   const [
     timezoneDropdownOptions,
     pastDaysDropdownOptions,
@@ -16,6 +17,7 @@ const SettingsMenu = () => {
 
   return (
     <div className="absolute w-full h-full bg-white flex flex-col items-center">
+      <CloseButton setIsVisible={setIsVisible} />
       <h1 className=" text-4xl my-5">Application Settings</h1>
       <div className="mb-5">
         <SettingsMenuRadio options={temperatureRadioOptions} />
