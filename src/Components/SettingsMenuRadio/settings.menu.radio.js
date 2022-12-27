@@ -1,21 +1,27 @@
+import { useRecoilValue } from "recoil";
+import { settingsState } from "../../contexts/AppContext/index.js";
+
 const SettingsMenuRadio = ({ options }) => {
-  console.log(options);
+  const settings = useRecoilValue(settingsState);
+
+  const lowerCaseType = options.type.toLowerCase();
+
   const renderRadios = options.values.map((value, index) => {
+    const lowerCaseValue = value.toLowerCase();
+
     return (
       <div className="flex items-center" key={index}>
         <input
           className="custom-checkbox"
-          id={`${options.type.toLowerCase()}_unit=${value.toLowerCase()}`}
-          settingtype={options.type.toLowerCase()}
-          settingunit={value.toLowerCase()}
-          name="temperature-radio"
+          id={`${lowerCaseType}_unit=${lowerCaseValue}`}
+          settingtype={lowerCaseType}
+          settingunit={lowerCaseValue}
+          name={`${lowerCaseType}-radio`}
           type="radio"
           onClick={options.onRadioClick}
+          defaultChecked={settings[lowerCaseType] === lowerCaseValue}
         />
-        <label
-          className="m-1 mr-10"
-          htmlFor={`${options.type.toLowerCase()}_unit=${value.toLowerCase()}`}
-        >
+        <label className="m-1 mr-10" htmlFor={`${lowerCaseType}_unit=${lowerCaseValue}`}>
           {value}
         </label>
       </div>
