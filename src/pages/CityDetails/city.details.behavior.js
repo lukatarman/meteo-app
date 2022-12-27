@@ -1,20 +1,34 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { selectedCityState } from "../../contexts/AppContext/index.js";
+import { variableTypeState } from "../../contexts/CityDetailsContext/index.js";
+import { weatherVariablesState } from "../../contexts/CityDetailsContext/index.js";
 
 const CityDetailsBehavior = () => {
   let params = useParams();
 
   const [selectedCity, setSelectedCity] = useRecoilState(selectedCityState);
+  const [variableType, setVariableType] = useRecoilState(variableTypeState);
+  const setWeatherVariables = useSetRecoilState(weatherVariablesState);
 
   useEffect(() => {
     setSelectedCity(params);
   }, []);
 
+  const onDropdownSelect = (item) => {
+    setVariableType(item);
+
+    setWeatherVariables({
+      type: item.toLowerCase(),
+      values: [],
+    });
+  };
+
   const dropdownOptions = {
     defaultValue: "Please Select View Type",
     menuOptions: ["Hourly View", "Daily View"],
+    onDropdownSelect,
   };
 
   const hourlyVariables = {
@@ -72,7 +86,7 @@ const CityDetailsBehavior = () => {
     },
   };
 
-  return [dropdownOptions, hourlyVariables, dailyVariables, selectedCity];
+  return [dropdownOptions, hourlyVariables, dailyVariables, selectedCity, variableType];
 };
 
 export default CityDetailsBehavior;
