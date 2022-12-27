@@ -1,7 +1,6 @@
 import { useSetRecoilState } from "recoil";
 
 const DropdownMenu = ({ options, setButtonValue, isVisible, setIsVisible }) => {
-  console.log(options);
   const handleItemClick = (option) => {
     setButtonValue(option);
     options.onDropdownSelect(option);

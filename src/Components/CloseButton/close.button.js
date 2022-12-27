@@ -1,7 +1,5 @@
 const CloseButton = ({ setIsVisible }) => {
   const handleButtonClick = () => {
-    console.log("clicked");
-    console.log(setIsVisible);
     setIsVisible(false);
   };
 

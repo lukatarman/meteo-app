@@ -6,7 +6,6 @@ const SearchInput = () => {
   const [searchInput, onInputChange, searchResults] = SearchInputBehavior();
 
   const renderResults = searchResults.map((result, index) => {
-    console.log(result);
     return (
       <ul key={index} className="bg-white border border-gray-100 w-full mt-1">
         <Link to={`/city=${result.city}&latitude=${result.lat}&longitude=${result.lng}`}>
