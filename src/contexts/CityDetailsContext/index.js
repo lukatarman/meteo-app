@@ -1,10 +1,5 @@
 import { atom } from "recoil";
 
-export const isVisibleState = atom({
-  key: "IsVisible",
-  default: false,
-});
-
 export const variableTypeState = atom({
   key: "VariableType",
   default: "",
