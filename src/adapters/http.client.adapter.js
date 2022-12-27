@@ -10,8 +10,7 @@ export const getSearchResults = (term) => {
     .filter((result, index) => index <= 5);
 };
 
-export const getCityGraph = async (selectedCity, weatherVariables) => {
-  const params = getParams(selectedCity, weatherVariables);
-  const response = await axios.get(`https://api.open-meteo.com/v1/forecast?${params}`);
-  console.log(response.data);
+export const getCityGraph = async (selectedCity, weatherVariables, appSettings) => {
+  const params = getParams(selectedCity, weatherVariables, appSettings);
+  return await axios.get(`https://api.open-meteo.com/v1/forecast?${params}`);
 };
