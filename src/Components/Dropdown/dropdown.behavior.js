@@ -12,7 +12,11 @@ const DropdownBehavior = (options) => {
     };
 
     document.body.addEventListener("click", onBodyClick);
-  });
+
+    return () => {
+      document.body.removeEventListener("click", onBodyClick);
+    };
+  }, []);
 
   const handleDropdownClick = () => {
     setIsVisible(!isVisible);
