@@ -1,5 +1,6 @@
 import Dropdown from "../../Components/Dropdown/dropdown.view.js";
 import WeatherVariables from "../../Components/WeatherVariables/weather.variables.js";
+import SettingsMenu from "../../Components/SettingsMenu/settings.menu.view.js";
 import CityDetailsBehavior from "./city.details.behavior.js";
 
 // todo
@@ -15,6 +16,7 @@ const CityDetails = () => {
   return (
     <div>
       <div className="flex flex-col items-center h-screen">
+        <SettingsMenu />
         <h1 className="text-4xl my-5">Metorologic data for {selectedCity.city}</h1>
         <Dropdown options={dropdownOptions} />
         {variableType === "Hourly View" ? (
