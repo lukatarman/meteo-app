@@ -13,10 +13,14 @@ export const selectedCityState = atom({
 export const settingsState = atom({
   key: "Settings",
   default: {
-    temperature: "celsius",
-    windspeed: "km/h",
-    precipitation: "mm",
-    timezone: "UTC",
-    pastDays: "0",
+    units: {
+      temperature: "celsius",
+      windspeed: "km/h",
+      precipitation: "mm",
+    },
+    dropdowns: {
+      timezone: "UTC",
+      past_days: "0",
+    },
   },
 });
