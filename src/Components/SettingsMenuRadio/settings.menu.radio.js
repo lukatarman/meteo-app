@@ -19,7 +19,7 @@ const SettingsMenuRadio = ({ options }) => {
           name={`${lowerCaseType}-radio`}
           type="radio"
           onClick={options.onRadioClick}
-          defaultChecked={settings[lowerCaseType] === lowerCaseValue}
+          defaultChecked={settings.units[lowerCaseType] === lowerCaseValue}
         />
         <label className="m-1 mr-10" htmlFor={`${lowerCaseType}_unit=${lowerCaseValue}`}>
           {value}
