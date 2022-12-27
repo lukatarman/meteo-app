@@ -1,14 +1,16 @@
 import { useState } from "react";
 import DropdownMenu from "../DropdownMenu/dropdown.menu.js";
-import { isVisibleState } from "../../contexts/CityDetailsContext/index.js";
-import { useRecoilValue } from "recoil";
 import DropdownBehavior from "./dropdown.behavior.js";
 
 const Dropdown = ({ options }) => {
-  const [buttonValue, setButtonValue] = useState(options.defaultValue);
-  const isVisible = useRecoilValue(isVisibleState);
-
-  const [handleDropdownClick, dropdownRef] = DropdownBehavior();
+  const [
+    handleDropdownClick,
+    buttonValue,
+    setButtonValue,
+    isVisible,
+    setIsVisible,
+    dropdownRef,
+  ] = DropdownBehavior(options);
 
   return (
     <div className="mb-5">
@@ -24,7 +26,7 @@ const Dropdown = ({ options }) => {
         >
           {buttonValue}
           <svg
-            className="-mr-1 ml-2 h-5 w-5"
+            className="mr-1 ml-2 h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -39,7 +41,12 @@ const Dropdown = ({ options }) => {
         </button>
       </div>
       {isVisible ? (
-        <DropdownMenu options={options} setButtonValue={setButtonValue} />
+        <DropdownMenu
+          options={options}
+          setButtonValue={setButtonValue}
+          isVisible={isVisible}
+          setIsVisible={setIsVisible}
+        />
       ) : null}
     </div>
   );

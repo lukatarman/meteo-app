@@ -1,9 +1,8 @@
-import { useEffect, useRef } from "react";
-import { isVisibleState } from "../../contexts/CityDetailsContext/index.js";
-import { useRecoilState } from "recoil";
+import { useEffect, useState, useRef } from "react";
 
-const DropdownBehavior = () => {
-  const [isVisible, setIsVisible] = useRecoilState(isVisibleState);
+const DropdownBehavior = (options) => {
+  const [buttonValue, setButtonValue] = useState(options.defaultValue);
+  const [isVisible, setIsVisible] = useState(false);
   const dropdownRef = useRef();
 
   useEffect(() => {
@@ -19,7 +18,14 @@ const DropdownBehavior = () => {
     setIsVisible(!isVisible);
   };
 
-  return [handleDropdownClick, dropdownRef];
+  return [
+    handleDropdownClick,
+    buttonValue,
+    setButtonValue,
+    isVisible,
+    setIsVisible,
+    dropdownRef,
+  ];
 };
 
 export default DropdownBehavior;

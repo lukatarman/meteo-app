@@ -1,14 +1,10 @@
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { isVisibleState } from "../../contexts/CityDetailsContext/index.js";
-import { variableTypeState } from "../../contexts/CityDetailsContext/index.js";
+import { useSetRecoilState } from "recoil";
 
-const DropdownMenu = ({ options, setButtonValue }) => {
-  const [isVisible, setIsVisible] = useRecoilState(isVisibleState);
-  const setVariableType = useSetRecoilState(variableTypeState);
-
+const DropdownMenu = ({ options, setButtonValue, isVisible, setIsVisible }) => {
+  console.log(options);
   const handleItemClick = (option) => {
     setButtonValue(option);
-    setVariableType(option);
+    options.onDropdownSelect(option);
     setIsVisible(!isVisible);
   };
 
