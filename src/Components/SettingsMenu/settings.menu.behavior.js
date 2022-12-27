@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { settingsState, favoriteCitiesState } from "../../contexts/AppContext/index.js";
 
@@ -7,9 +8,9 @@ const SettingsMenuBehavior = () => {
   const resetFavoritesState = useResetRecoilState(favoriteCitiesState);
 
   const handleRadioClick = (e) => {
-    const newObj = {};
+    const newObj = { units: { ...settings.units } };
 
-    newObj[e.target.attributes.settingtype.textContent] =
+    newObj.units[e.target.attributes.settingtype.textContent] =
       e.target.attributes.settingunit.textContent;
 
     setSettings(Object.assign({}, settings, newObj));
@@ -34,11 +35,20 @@ const SettingsMenuBehavior = () => {
   };
 
   const handleTimezoneChange = (value) => {
-    setSettings(Object.assign({}, settings, { timezone: value }));
+    const myObj = { dropdowns: { ...settings.dropdowns } };
+
+    myObj.dropdowns.timezone = value;
+
+    setSettings(Object.assign({}, settings, myObj));
   };
 
   const handlePastDaysChange = (value) => {
-    setSettings(Object.assign({}, settings, { pastDays: value }));
+    const myObj = { dropdowns: { ...settings.dropdowns } };
+
+    myObj.dropdowns.past_days = value;
+    console.log(myObj);
+
+    setSettings(Object.assign({}, settings, myObj));
   };
 
   const timezoneDropdownOptions = {
