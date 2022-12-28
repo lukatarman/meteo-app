@@ -1,4 +1,3 @@
-import { useState } from "react";
 import DropdownMenu from "../DropdownMenu/dropdown.menu.js";
 import DropdownBehavior from "./dropdown.behavior.js";
 
@@ -18,7 +17,7 @@ const Dropdown = ({ options }) => {
         <button
           ref={dropdownRef}
           type="button"
-          className="inline-flex w-96 justify-between rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 "
+          className="inline-flex w-96 justify-between rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 "
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
@@ -26,7 +25,7 @@ const Dropdown = ({ options }) => {
         >
           {buttonValue}
           <svg
-            className="mr-1 ml-2 h-5 w-5"
+            className="ml-2 h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
