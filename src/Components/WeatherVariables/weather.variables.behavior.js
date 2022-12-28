@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { getCityGraph } from "../../adapters/http.client.adapter.js";
-import { weatherVariablesState } from "../../contexts/CityDetailsContext";
+import { graphDataState, weatherVariablesState } from "../../contexts/CityDetailsContext";
 import { selectedCityState, settingsState } from "../../contexts/AppContext";
 
 const WeatherVariablesBehavior = (options) => {
   const [weatherVariables, setWeatherVariables] = useRecoilState(weatherVariablesState);
+  const [setGraphData] = useSetRecoilState(graphDataState);
   const settings = useRecoilValue(settingsState);
   const selectedCity = useRecoilValue(selectedCityState);
 
@@ -31,8 +32,9 @@ const WeatherVariablesBehavior = (options) => {
   };
 
   useEffect(() => {
-    const fetchGraphData = () => {
-      getCityGraph(selectedCity, weatherVariables, settings);
+    const fetchGraphData = async () => {
+      const response = await getCityGraph(selectedCity, weatherVariables, settings);
+      setGraphData(response);
     };
 
     fetchGraphData();
