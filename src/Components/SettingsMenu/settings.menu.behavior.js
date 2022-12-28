@@ -52,8 +52,8 @@ const SettingsMenuBehavior = () => {
   };
 
   const timezoneDropdownOptions = {
-    defaultValue: "UTC",
-    menuOptions: ["UTC", "Australia/Sydney", "America/New_York"],
+    defaultValue: "Europe/London",
+    menuOptions: ["Europe/London", "Australia/Sydney", "America/New_York"],
     onDropdownSelect: handleTimezoneChange,
   };
 
