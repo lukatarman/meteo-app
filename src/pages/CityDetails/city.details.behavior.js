@@ -15,7 +15,7 @@ const CityDetailsBehavior = () => {
 
   useEffect(() => {
     setSelectedCity(params);
-  }, []);
+  }, [params]);
 
   const onDropdownSelect = (item) => {
     setVariableType(item);
