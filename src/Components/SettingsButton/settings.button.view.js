@@ -10,7 +10,7 @@ const SettingsButton = ({ setSettingsIsVisible }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-8 h-8 settings-icon m-2 z-20 cursor-pointer"
+      className="w-8 h-8 absolute top-0 right-0 m-2 z-20 cursor-pointer"
       onClick={handleIconClick}
     >
       <path
