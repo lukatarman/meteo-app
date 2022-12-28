@@ -13,6 +13,11 @@ const SearchInputBehavior = () => {
     setSearchInput(e.target.value);
   };
 
+  const handleFavoritesButtonClick = (result) => {
+    if (favoriteCities.includes(result)) return;
+    setFavoriteCities([...favoriteCities, result]);
+  };
+
   useEffect(() => {
     const fetchData = () => {
       const response = getSearchResults(searchInput);
@@ -28,9 +33,6 @@ const SearchInputBehavior = () => {
     size: 6,
     margin: "",
     position: ["", "top", "right"],
-    handleButtonClick() {
-      console.log("clicked");
-    },
   };
 
   return [
@@ -38,8 +40,7 @@ const SearchInputBehavior = () => {
     onInputChange,
     searchResults,
     favoriteButtonOptions,
-    favoriteCities,
-    setFavoriteCities,
+    handleFavoritesButtonClick,
   ];
 };
 
