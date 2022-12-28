@@ -2,15 +2,27 @@ import SearchInput from "../../Components/SearchInput/search.input.view.js";
 import SettingsButton from "../../Components/SettingsButton/settings.button.view.js";
 import FavoritesButton from "../../Components/FavoritesButton/favorites.button.view.js";
 import FavoritesBar from "../../Components/FavoritesBar/favorites.bar.view.js";
+import { useState } from "react";
 
 const SearchPage = () => {
+  const [favoritesVisible, setFavoritesVisible] = useState(false);
+
+  const favoritesButtonOptions = {
+    size: "8",
+    margin: "m-2",
+    position: ["absolute", "top", "left"],
+    handleButtonClick() {
+      setFavoritesVisible(true);
+    },
+  };
+
   return (
     <div className="flex">
-      <FavoritesBar />
+      {favoritesVisible ? (
+        <FavoritesBar setFavoritesVisible={setFavoritesVisible} />
+      ) : null}
 
-      <div className="top-left-favorites">
-        <FavoritesButton size={6} />
-      </div>
+      {favoritesVisible ? null : <FavoritesButton options={favoritesButtonOptions} />}
 
       <SettingsButton />
 
