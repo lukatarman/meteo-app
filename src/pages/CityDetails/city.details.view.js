@@ -7,11 +7,7 @@ import CityDetailsBehavior from "./city.details.behavior.js";
 import Button from "../../Components/Button/button.js";
 import FavoritesBar from "../../Components/FavoritesBar/favorites.bar.view.js";
 import FavoritesButton from "../../Components/FavoritesButton/favorites.button.view.js";
-
-// todo
-// add graph
-// make page mobile friendly
-// animate?
+import CityData from "../../Components/CityData/city.data.js";
 
 const CityDetails = () => {
   const [settingsIsVisible, setSettingsIsVisible] = useState(false);
@@ -54,6 +50,8 @@ const CityDetails = () => {
           <div className="my-5 mr-auto">
             {variableType !== "" && <Button options={buttonOptions} />}
           </div>
+
+          {variableType === "" ? null : <CityData />}
         </div>
       </div>
     </div>
