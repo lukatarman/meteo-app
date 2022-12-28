@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { getCityGraph } from "../../adapters/http.client.adapter.js";
-import { weatherVariablesState } from "../../contexts/CityDetailsContext/index.js";
-import { selectedCityState, settingsState } from "../../contexts/AppContext/index.js";
+import { weatherVariablesState } from "../../contexts/CityDetailsContext";
+import { selectedCityState, settingsState } from "../../contexts/AppContext";
 
 const WeatherVariablesBehavior = (options) => {
   const [weatherVariables, setWeatherVariables] = useRecoilState(weatherVariablesState);
