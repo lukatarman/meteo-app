@@ -10,7 +10,7 @@ const CloseButton = ({ setIsVisible }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6 absolute top-0 right-0 cursor-pointer"
+      className="w-8 h-8 m-2 absolute top-0 right-0 cursor-pointer"
       onClick={handleButtonClick}
     >
       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
