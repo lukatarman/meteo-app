@@ -11,7 +11,7 @@ const FavoritesBar = ({ setFavoritesVisible }) => {
 
   return (
     <div className="h-screen">
-      <div className="w-72 xs:w-1/4 favorites-bar relative h-full bg-blue-200">
+      <div className="w-72 xs:w-1/4 favorites-bar relative h-full bg-sky-100">
         <LeftArrow setFavoritesVisible={setFavoritesVisible} />
         <div className="flex flex-col pt-8">{favoriteCitiesRender}</div>
       </div>
