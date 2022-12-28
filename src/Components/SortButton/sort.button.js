@@ -6,10 +6,6 @@ const SortButton = () => {
   const [favoriteCities, setFavoriteCities] = useRecoilState(favoriteCitiesState);
   const [isAscending, setIsAscending] = useState("");
 
-  useEffect(() => {
-    console.log(isAscending);
-  }, [isAscending]);
-
   const handleSortClick = () => {
     const arrCopy = [...favoriteCities];
 
