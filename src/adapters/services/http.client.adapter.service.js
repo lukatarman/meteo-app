@@ -40,7 +40,6 @@ const includesDefaultValue = (value) => {
   if (value === "celsius") return true;
   if (value === "km/h") return true;
   if (value === "mm") return true;
-  if (value === "UTC") return true;
   if (value === "0") return true;
   return false;
 };
