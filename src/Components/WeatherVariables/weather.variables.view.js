@@ -6,7 +6,7 @@ const WeatherVariables = ({ options }) => {
   const renderColumn = (col) => {
     return col.map((item, index) => {
       return (
-        <div key={index} className="flex items-center mb-4">
+        <div key={index} className="flex items-center mb-2">
           <input
             type="checkbox"
             id={item.apiValue}
@@ -39,8 +39,8 @@ const WeatherVariables = ({ options }) => {
   }
 
   return (
-    <div className="py-3 px-0 w-10/12">
-      <h2>{options.type} Weather Variables</h2>
+    <div className="py-3 px-0 w-full">
+      <h2 className="text-2xl">{options.type} Weather Variables</h2>
 
       <div className="flex justify-center py-3 px-0 w-full m-auto">{renderVariables}</div>
     </div>
