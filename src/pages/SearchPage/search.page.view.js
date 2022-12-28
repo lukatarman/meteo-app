@@ -3,9 +3,11 @@ import SettingsButton from "../../Components/SettingsButton/settings.button.view
 import FavoritesButton from "../../Components/FavoritesButton/favorites.button.view.js";
 import FavoritesBar from "../../Components/FavoritesBar/favorites.bar.view.js";
 import { useState } from "react";
+import SettingsMenu from "../../Components/SettingsMenu/settings.menu.view.js";
 
 const SearchPage = () => {
   const [favoritesVisible, setFavoritesVisible] = useState(false);
+  const [settingsIsVisible, setSettingsIsVisible] = useState(false);
 
   const favoritesButtonOptions = {
     size: "8",
@@ -24,7 +26,11 @@ const SearchPage = () => {
 
       {favoritesVisible ? null : <FavoritesButton options={favoritesButtonOptions} />}
 
-      <SettingsButton />
+      {settingsIsVisible ? null : (
+        <SettingsButton setSettingsIsVisible={setSettingsIsVisible} />
+      )}
+
+      {settingsIsVisible ? <SettingsMenu setIsVisible={setSettingsIsVisible} /> : null}
 
       <SearchInput />
     </div>
