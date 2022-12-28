@@ -28,7 +28,7 @@ const SortButton = () => {
 
   return (
     <div
-      className="flex absolute top-0 left-0 m-3 cursor-pointer hover:bg-sky-200"
+      className="flex absolute top-0 left-0 m-3 cursor-pointer"
       onClick={handleSortClick}
     >
       <svg

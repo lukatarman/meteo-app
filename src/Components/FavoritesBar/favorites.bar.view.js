@@ -9,7 +9,7 @@ const FavoritesBar = ({ setFavoritesVisible }) => {
 
   const favoriteCitiesRender = favoriteCities.map((city, index) => {
     return (
-      <div key={index}>
+      <div className="hover:bg-gray-200" key={index}>
         <div>
           <Link to={`/city=${city.city}&latitude=${city.lat}&longitude=${city.lng}`}>
             <div className="text-2xl m-2">{city.city}</div>
@@ -21,10 +21,10 @@ const FavoritesBar = ({ setFavoritesVisible }) => {
 
   return (
     <div className="h-screen">
-      <div className="w-72 xs:w-1/4 favorites-bar relative h-full bg-sky-100">
+      <div className="w-72 xs:w-1/4 favorites-bar relative h-full bg-gray-100">
         <SortButton />
         <LeftArrow setFavoritesVisible={setFavoritesVisible} />
-        <div className="flex flex-col pt-8">{favoriteCitiesRender}</div>
+        <div className="flex flex-col pt-12">{favoriteCitiesRender}</div>
       </div>
     </div>
   );
