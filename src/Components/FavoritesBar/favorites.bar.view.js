@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { favoriteCitiesState } from "../../contexts/AppContext/index.js";
 import LeftArrow from "../LeftArrow/left.arrow.js";
@@ -6,7 +7,12 @@ const FavoritesBar = ({ setFavoritesVisible }) => {
   const favoriteCities = useRecoilValue(favoriteCitiesState);
 
   const favoriteCitiesRender = favoriteCities.map((city) => {
-    return <div className="text-2xl m-2">{city}</div>;
+    console.log(city);
+    return (
+      <Link to={`/city=${city.city}&latitude=${city.lat}&longitude=${city.lng}`}>
+        <div className="text-2xl m-2">{city.city}</div>
+      </Link>
+    );
   });
 
   return (
