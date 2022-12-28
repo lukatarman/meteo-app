@@ -16,7 +16,7 @@ const SettingsMenu = ({ setIsVisible }) => {
   ] = SettingsMenuBehavior();
 
   return (
-    <div className="absolute top-0 w-full h-full bg-white flex flex-col items-center">
+    <div className="absolute top-0 w-full h-full bg-white flex flex-col items-center z-10">
       <CloseButton setIsVisible={setIsVisible} />
       <h1 className=" text-4xl my-5">Application Settings</h1>
       <div className="mb-5">
