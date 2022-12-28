@@ -3,19 +3,41 @@ import FavoritesButton from "../FavoritesButton/favorites.button.view.js";
 import SearchInputBehavior from "./search.input.behavior.js";
 
 const SearchInput = () => {
-  const [searchInput, onInputChange, searchResults] = SearchInputBehavior();
+  const [
+    searchInput,
+    onInputChange,
+    searchResults,
+    favoriteButtonOptions,
+    favoriteCities,
+    setFavoriteCities,
+  ] = SearchInputBehavior();
+
+  const handleFavoritesButtonClick = (result) => {
+    setFavoriteCities([...favoriteCities, result.city]);
+  };
 
   const renderResults = searchResults.map((result, index) => {
     return (
-      <ul key={index} className="bg-white border border-gray-100 w-full mt-1">
-        <Link to={`/city=${result.city}&latitude=${result.lat}&longitude=${result.lng}`}>
-          <li className="pl-2 pr-2 py-1 border-b-2 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900">
+      <ul
+        key={index}
+        className="bg-white border border-gray-100 w-full mt-1 flex flex-row justify-between"
+      >
+        <li className="w-full pl-2 pr-2 py-1 border-b-2 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900">
+          <Link
+            to={`/city=${result.city}&latitude=${result.lat}&longitude=${result.lng}`}
+          >
             <div>{result.city}</div>
-            <div className="top-right-favorites">
-              <FavoritesButton size={4} />
-            </div>
-          </li>
-        </Link>
+          </Link>
+        </li>
+
+        <li
+          className="relative w-fit flex flex-col justify-center"
+          onClick={() => {
+            handleFavoritesButtonClick(result);
+          }}
+        >
+          <FavoritesButton options={favoriteButtonOptions} />
+        </li>
       </ul>
     );
   });
