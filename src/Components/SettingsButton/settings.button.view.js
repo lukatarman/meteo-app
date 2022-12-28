@@ -1,4 +1,8 @@
-const SettingsButton = () => {
+const SettingsButton = ({ setSettingsIsVisible }) => {
+  const handleIconClick = () => {
+    setSettingsIsVisible(true);
+  };
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +10,8 @@ const SettingsButton = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-8 h-8 settings-icon m-2"
+      className="w-8 h-8 settings-icon m-2 z-20 cursor-pointer"
+      onClick={handleIconClick}
     >
       <path
         strokeLinecap="round"
