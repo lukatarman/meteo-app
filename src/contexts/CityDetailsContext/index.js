@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 
-export const variableTypeState = atom({
-  key: "VariableType",
+export const dropdownViewTypeState = atom({
+  key: "DropdownViewType",
   default: "",
 });
 
