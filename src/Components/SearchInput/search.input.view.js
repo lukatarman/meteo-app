@@ -52,7 +52,7 @@ const SearchInput = () => {
             <div>
               <input
                 type="text"
-                className="w-full p-2 pr-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent"
+                className="w-full p-2 pr-8 rounded border border-gray-200 bg-sky-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent"
                 placeholder="Search"
                 value={searchInput}
                 onChange={onInputChange}
