@@ -2,34 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  border: 1px solid green;
-  margin: 2px;
-}
-
-.settings-icon {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  border: 1px red solid;
-}
-
-.top-left-favorites {
-  margin: 10px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  border: 1px red solid;
-  z-index: 4;
-}
-
-.top-right-favorites {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  border: 1px solid blue;
-}
-
 .custom-checkbox:focus {
   box-shadow: none;
 }
