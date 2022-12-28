@@ -1,16 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { selectedCityState } from "../../contexts/AppContext/index.js";
-import { variableTypeState } from "../../contexts/CityDetailsContext/index.js";
+import { dropdownViewTypeState } from "../../contexts/CityDetailsContext/index.js";
 import { weatherVariablesState } from "../../contexts/CityDetailsContext/index.js";
 
 const CityDetailsBehavior = () => {
   let params = useParams();
+  const [favoritesVisible, setFavoritesVisible] = useState(false);
 
   const [selectedCity, setSelectedCity] = useRecoilState(selectedCityState);
-  const [variableType, setVariableType] = useRecoilState(variableTypeState);
-  const setWeatherVariables = useSetRecoilState(weatherVariablesState);
+  const [variableType, setVariableType] = useRecoilState(dropdownViewTypeState);
+  const [weatherVariables, setWeatherVariables] = useRecoilState(weatherVariablesState);
 
   useEffect(() => {
     setSelectedCity(params);
@@ -86,7 +87,33 @@ const CityDetailsBehavior = () => {
     },
   };
 
-  return [dropdownOptions, hourlyVariables, dailyVariables, selectedCity, variableType];
+  const buttonOptions = {
+    value: "Get Data",
+    onButtonClick() {
+      setWeatherVariables({ ...weatherVariables });
+    },
+  };
+
+  const favoriteButtonOptions = {
+    size: 8,
+    margin: "m-2",
+    position: ["absolute", "top", "left"],
+    handleButtonClick() {
+      setFavoritesVisible(true);
+    },
+  };
+
+  return [
+    dropdownOptions,
+    hourlyVariables,
+    dailyVariables,
+    selectedCity,
+    variableType,
+    buttonOptions,
+    favoritesVisible,
+    setFavoritesVisible,
+    favoriteButtonOptions,
+  ];
 };
 
 export default CityDetailsBehavior;
