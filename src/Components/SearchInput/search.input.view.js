@@ -49,7 +49,7 @@ const SearchInput = () => {
         <h1 className="text-4xl mb-5">Meteo App</h1>
         <div className="w-3/5">
           <div className="w-full inline-flex flex-col justify-center relative text-gray-500">
-            <div className="relative">
+            <div>
               <input
                 type="text"
                 className="w-full p-2 pr-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent"
@@ -58,7 +58,7 @@ const SearchInput = () => {
                 onChange={onInputChange}
               />
               <svg
-                className="w-4 h-4 absolute right-2.5 top-3.5"
+                className="w-6 h-6 absolute right-2.5 top-2.5"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
