@@ -8,13 +8,8 @@ const SearchInput = () => {
     onInputChange,
     searchResults,
     favoriteButtonOptions,
-    favoriteCities,
-    setFavoriteCities,
+    handleFavoritesButtonClick,
   ] = SearchInputBehavior();
-
-  const handleFavoritesButtonClick = (result) => {
-    setFavoriteCities([...favoriteCities, result]);
-  };
 
   const renderResults = searchResults.map((result, index) => {
     return (
