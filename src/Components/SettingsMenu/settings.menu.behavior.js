@@ -45,7 +45,6 @@ const SettingsMenuBehavior = () => {
     const myObj = { dropdowns: { ...settings.dropdowns } };
 
     myObj.dropdowns.past_days = value;
-    console.log(myObj);
 
     setSettings(Object.assign({}, settings, myObj));
   };
