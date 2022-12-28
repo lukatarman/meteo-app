@@ -3,9 +3,7 @@ import searchResults from "../assets/gradovi.json";
 import { getParams } from "./services/http.client.adapter.service.js";
 
 export const getSearchResults = (term) => {
-  const response = searchResults;
-
-  return response
+  return searchResults
     .filter(({ city }) => city.toLowerCase().includes(term.toLowerCase()))
     .filter((result, index) => index <= 5);
 };
