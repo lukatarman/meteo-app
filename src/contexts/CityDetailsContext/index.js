@@ -9,3 +9,8 @@ export const weatherVariablesState = atom({
   key: "WeatherVariables",
   default: { type: "", values: [] },
 });
+
+export const graphDataState = atom({
+  key: "GraphData",
+  default: {},
+});
