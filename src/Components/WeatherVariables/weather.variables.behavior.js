@@ -6,7 +6,7 @@ import { selectedCityState, settingsState } from "../../contexts/AppContext";
 
 const WeatherVariablesBehavior = (options) => {
   const [weatherVariables, setWeatherVariables] = useRecoilState(weatherVariablesState);
-  const [setGraphData] = useSetRecoilState(graphDataState);
+  const setGraphData = useSetRecoilState(graphDataState);
   const settings = useRecoilValue(settingsState);
   const selectedCity = useRecoilValue(selectedCityState);
 
