@@ -1,6 +1,6 @@
 import Highcharts from "highcharts";
 import Exporting from "highcharts/modules/exporting";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { graphDataState } from "../../contexts/CityDetailsContext/index.js";
 import { weatherVariablesState } from "../../contexts/CityDetailsContext/index.js";
