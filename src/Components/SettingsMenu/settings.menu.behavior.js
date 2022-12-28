@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { settingsState, favoriteCitiesState } from "../../contexts/AppContext/index.js";
 
