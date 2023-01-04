@@ -11,13 +11,15 @@ const CityData = () => {
   const graphData = useRecoilValue(graphDataState);
   const weatherVariables = useRecoilValue(weatherVariablesState);
 
+  let allGraphs;
   const graphs = [];
-  let allGraphs = [];
 
   useEffect(() => {
     weatherVariables.values.forEach((value, outerIndex) => {
       graphs[outerIndex] = [];
+
       getGraphs(value, outerIndex);
+
       allGraphs = fixGraphs();
     });
 
@@ -36,26 +38,23 @@ const CityData = () => {
   }, [graphData]);
 
   const getGraphs = (value, outerIndex) => {
-    const currentVariable = graphData.data[weatherVariables.type][value];
+    if (!weatherVariables.type) return;
 
-    currentVariable.forEach((entry, index) => {
+    const currentVariableValues = graphData.data[weatherVariables.type][value];
+    const timeValues = graphData.data[weatherVariables.type].time;
+
+    currentVariableValues.forEach((variableValue, index) => {
       graphs[outerIndex][index] = [];
-      if (weatherVariables.type) {
-        const timeEntry = graphData.data[weatherVariables.type].time;
-        graphs[outerIndex][index].push(Date.parse(new Date(timeEntry[index])));
-      }
-      graphs[outerIndex][index].push(entry);
+
+      graphs[outerIndex][index].push(Date.parse(new Date(timeValues[index])));
+      graphs[outerIndex][index].push(variableValue);
     });
   };
 
   const fixGraphs = () => {
-    let allGraphs = [];
-
-    graphs.forEach((graphData) => {
-      allGraphs.push({ data: graphData });
+    return graphs.map((graph) => {
+      return { data: graph };
     });
-
-    return allGraphs;
   };
 
   return <div id="highchart"></div>;
